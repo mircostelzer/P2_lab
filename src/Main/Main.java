@@ -1,6 +1,6 @@
 package Main;
 
-import data.Map;
+import visual.Map;
 import java.util.Scanner;
 
 public class Main {

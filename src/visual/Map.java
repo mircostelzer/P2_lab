@@ -1,4 +1,7 @@
-package data;
+package visual;
+
+import data.AirBlock;
+import data.Block;
 
 public class Map {
 
@@ -16,7 +19,7 @@ public class Map {
         this.grid = new Block[rows][columns];
         for (int i = 0; i< rows; i++) {
             for (int j = 0; j< columns; j++) {
-                grid[i][j] = new Block();
+                grid[i][j] = new AirBlock();
             }
         }
     }
@@ -27,7 +30,7 @@ public class Map {
         this.grid = new Block[rows][columns];
         for (int i = 0; i< rows; i++) {
             for (int j = 0; j< columns; j++) {
-                grid[i][j] = new Block();
+                grid[i][j] = new AirBlock();
             }
         }
     }
@@ -43,14 +46,14 @@ public class Map {
 
     public void change_cell_with_A(int x, int y) {
         if (x < rows && y < columns) {
-            this.grid[x][y] = new Block('A');
+            this.grid[x][y] = new AirBlock();
         }
         else {
             System.out.println("Invalid coordinates");
         }
     }
 
-    public void swap(int x, int y) {
+    private void swap(int x, int y) {
         if (x+1 < rows && y < columns) {
             Block tmp = this.grid[x][y];
             this.grid[x][y] = this.grid[x+1][y];
@@ -64,7 +67,7 @@ public class Map {
 
     public void insert_at_coords(char c, int x, int y) {
         if (x < rows && y < columns) {
-            this.grid[x][y] = new Block(c);
+            this.grid[x][y] = new AirBlock();
             this.insert_iter(x, y);
 //            insert_rec(x, y);
         }
