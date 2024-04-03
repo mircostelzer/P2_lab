@@ -2,6 +2,8 @@ package visual;
 
 import data.AirBlock;
 import data.Block;
+import data.SandBlock;
+import data.WaterBlock;
 
 public class Map {
 
@@ -16,12 +18,15 @@ public class Map {
     public Map() {
         rows = Map.DEFAULT_ROWS;
         columns = Map.DEFAULT_COLUMNS;
+
         this.grid = new Block[rows][columns];
         for (int i = 0; i< rows; i++) {
             for (int j = 0; j< columns; j++) {
                 grid[i][j] = new AirBlock();
             }
         }
+
+        this.addRiver();
     }
 
     public Map(int r, int c) {
@@ -46,7 +51,7 @@ public class Map {
 
     public void change_cell_with_A(int x, int y) {
         if (x < rows && y < columns) {
-            this.grid[x][y] = new AirBlock();
+            this.grid[x][y] = new SandBlock();
         }
         else {
             System.out.println("Invalid coordinates");
@@ -65,9 +70,9 @@ public class Map {
 
     }
 
-    public void insert_at_coords(char c, int x, int y) {
+    public void insert_at_coords(Block b, int x, int y) {
         if (x < rows && y < columns) {
-            this.grid[x][y] = new AirBlock();
+            this.grid[x][y] = b;
             this.insert_iter(x, y);
 //            insert_rec(x, y);
         }
@@ -94,5 +99,24 @@ public class Map {
             this.swap(i, y);
             i++;
         }
+    }
+
+    private void addRowsOfWater(int n) {
+        for (int i=0; i<n; i++) {
+            for (int j=0; j<columns; j++) {
+                Block w = new WaterBlock();
+                insert_at_coords(w, 0, j);
+            }
+        }
+    }
+
+    public void addRiver() {
+
+        addRowsOfWater(1);
+    }
+
+    public void addSea() {
+
+        addRowsOfWater(3);
     }
 }
