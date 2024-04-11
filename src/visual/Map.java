@@ -1,9 +1,8 @@
 package visual;
 
-import data.AirBlock;
-import data.Block;
-import data.SandBlock;
-import data.WaterBlock;
+import data.*;
+
+import java.util.Random;
 
 public class Map {
 
@@ -13,7 +12,7 @@ public class Map {
     private static final int DEFAULT_ROWS = 5;
     private static final int DEFAULT_COLUMNS = 10;
 
-    private Block[][] grid;
+    protected Block[][] grid;
 
     public Map() {
         rows = Map.DEFAULT_ROWS;
@@ -24,6 +23,14 @@ public class Map {
             for (int j = 0; j< columns; j++) {
                 grid[i][j] = new AirBlock();
             }
+        }
+
+        Random rand = new Random();
+        for (int i = 0 ; i < 5; i++){
+            Block b = new SandBlock();
+            int row = rand.nextInt(rows);
+            int col = rand.nextInt(columns);
+            this.grid[row][col] = b;
         }
 
         this.addRiver();
@@ -118,5 +125,16 @@ public class Map {
     public void addSea() {
 
         addRowsOfWater(3);
+    }
+
+    protected boolean IsSmeltableBlock(int x, int y) {
+        return (grid[x][y] instanceof SmeltableBlock);
+    }
+
+    protected SmeltableBlock getSmeltableBlock(int x, int y) {
+        if (IsSmeltableBlock(x, y)) {
+            return (SmeltableBlock)grid[x][y];
+        }
+        else return new NullBlock();
     }
 }

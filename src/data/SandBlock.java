@@ -7,7 +7,7 @@ public class SandBlock extends AbstractBlock implements SmeltableBlock {
         this.falls_with_gravity = true;
         this.fall_through = false;
         this.blockname = "Sand";
-        this.content = 'A';
+        this.content = 'S';
     }
 
     public Block smelt() {
