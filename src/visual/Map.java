@@ -56,17 +56,25 @@ public class Map {
         }
     }
 
-    public void change_cell_with_A(int x, int y) {
-        if (x < rows && y < columns) {
-            this.grid[x][y] = new SandBlock();
+    public boolean checkCoordinates(Coordinates coords) {
+        return (coords.getX() >= 0 && coords.getX() < rows) &&
+                (coords.getY() >= 0 && coords.getY() < columns);
+    }
+
+    public void change_cell_with_A(Coordinates coords) {
+        if (checkCoordinates(coords)) {
+            this.grid[coords.getX()][coords.getY()] = new SandBlock();
         }
         else {
             System.out.println("Invalid coordinates");
         }
     }
 
-    private void swap(int x, int y) {
-        if (x+1 < rows && y < columns) {
+    private void swap(Coordinates coords) {
+        int x = coords.getX();
+        int y = coords.getY();
+        Coordinates next = coords.nextX();
+        if (checkCoordinates(next)) {
             Block tmp = this.grid[x][y];
             this.grid[x][y] = this.grid[x+1][y];
             this.grid[x+1][y] = tmp;
@@ -77,34 +85,35 @@ public class Map {
 
     }
 
-    public void insert_at_coords(Block b, int x, int y) {
-        if (x < rows && y < columns) {
-            this.grid[x][y] = b;
-            this.insert_iter(x, y);
-//            insert_rec(x, y);
+    public void insert_at_coords(Block b, Coordinates coords) {
+        if (checkCoordinates(coords)) {
+            this.grid[coords.getX()][coords.getY()] = b;
+            this.insert_iter(coords);
+            //insert_rec(coords);
         }
 
     }
 
-    public void insert_rec(int x, int y) {
+    public void insert_rec(Coordinates coords) {
+        int x = coords.getX();
+        int y = coords.getY();
         if (    x >= (rows - 1)
                 || !grid[x][y].getFalls_with_gravity()
                 || !grid[x+1][y].getFall_through()) {
             return;
         }
 
-        this.swap(x, y);
-        this.insert_rec(x+1, y);
+        this.swap(coords);
+        this.insert_rec(coords.nextX());
     }
 
-    public void insert_iter(int x, int y) {
-        int i = x;
-        while ( i < (rows - 1)
-                && grid[i][y].getFalls_with_gravity()
-                && grid[i+1][y].getFall_through()) {
+    public void insert_iter(Coordinates coords) {
+        while ( checkCoordinates(coords.nextX())
+                && grid[coords.getX()][coords.getY()].getFalls_with_gravity()
+                && grid[coords.nextX().getX()][coords.getY()].getFall_through()) {
 
-            this.swap(i, y);
-            i++;
+            this.swap(coords);
+            coords = coords.nextX();
         }
     }
 
@@ -112,7 +121,7 @@ public class Map {
         for (int i=0; i<n; i++) {
             for (int j=0; j<columns; j++) {
                 Block w = new WaterBlock();
-                insert_at_coords(w, 0, j);
+                insert_at_coords(w, new Coordinates(i, j));
             }
         }
     }
@@ -127,13 +136,13 @@ public class Map {
         addRowsOfWater(3);
     }
 
-    protected boolean IsSmeltableBlock(int x, int y) {
-        return (grid[x][y] instanceof SmeltableBlock);
+    protected boolean IsSmeltableBlock(Coordinates coords) {
+        return (grid[coords.getX()][coords.getY()] instanceof SmeltableBlock);
     }
 
-    protected SmeltableBlock getSmeltableBlock(int x, int y) {
-        if (IsSmeltableBlock(x, y)) {
-            return (SmeltableBlock)grid[x][y];
+    protected SmeltableBlock getSmeltableBlock(Coordinates coords) {
+        if (IsSmeltableBlock(coords)) {
+            return (SmeltableBlock)grid[coords.getX()][coords.getY()];
         }
         else return new NullBlock();
     }

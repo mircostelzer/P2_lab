@@ -1,5 +1,6 @@
 package Main;
 
+import visual.Coordinates;
 import visual.Map;
 import java.util.Scanner;
 import visual.MainView;
@@ -17,7 +18,7 @@ public class Main {
             if (row == 9 && col == 9){
                 m.smelt();
             }else{
-                m.move_into_furnace(row, col);
+                m.move_into_furnace(new Coordinates(row, col));
             }
             m.display_on_out();
         }
@@ -34,7 +35,7 @@ public class Main {
             int col = myObj.nextInt();
 
             System.out.println("Changing: "+row+" - "+col);
-            mappa.change_cell_with_A(row,col);
+            mappa.change_cell_with_A(new Coordinates(row, col));
         }
         mappa.display_on_out();
     }

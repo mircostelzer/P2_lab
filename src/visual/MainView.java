@@ -4,8 +4,8 @@ import data.AirBlock;
 import data.Furnace;
 
 public class MainView {
-    private Map map;
-    private Furnace furnace;
+    private final Map map;
+    private final Furnace furnace;
 
     public MainView() {
         this.map = new Map();
@@ -17,10 +17,10 @@ public class MainView {
         this.furnace.display_on_out();
     }
 
-    public void move_into_furnace(int x, int y) {
-        if (map.IsSmeltableBlock(x, y)) {
-            furnace.setInput(map.getSmeltableBlock(x, y));
-            map.grid[x][y] = new AirBlock();
+    public void move_into_furnace(Coordinates coords) {
+        if (map.IsSmeltableBlock(coords)) {
+            furnace.setInput(map.getSmeltableBlock(coords));
+            map.grid[coords.getX()][coords.getY()] = new AirBlock();
         }
     }
 
