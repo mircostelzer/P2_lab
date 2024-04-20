@@ -1,4 +1,4 @@
-package visual;
+package Utils;
 
 public class Coordinates {
     private int x;
@@ -13,16 +13,8 @@ public class Coordinates {
         return x;
     }
 
-    public void setX(int x) {
-        this.x = x;
-    }
-
     public int getY() {
         return y;
-    }
-
-    public void setY(int y) {
-        this.y = y;
     }
 
     public Coordinates nextX() {

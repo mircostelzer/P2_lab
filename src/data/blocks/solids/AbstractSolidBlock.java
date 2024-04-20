@@ -1,4 +1,6 @@
-package data;
+package data.blocks.solids;
+
+import data.blocks.AbstractBlock;
 
 public abstract class AbstractSolidBlock extends AbstractBlock {
 

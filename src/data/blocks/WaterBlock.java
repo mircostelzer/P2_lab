@@ -1,4 +1,4 @@
-package data;
+package data.blocks;
 
 public class WaterBlock extends AbstractBlock {
 

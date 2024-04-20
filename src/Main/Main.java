@@ -1,6 +1,6 @@
 package Main;
 
-import visual.Coordinates;
+import Utils.Coordinates;
 import visual.Map;
 import java.util.Scanner;
 import visual.MainView;
@@ -35,7 +35,7 @@ public class Main {
             int col = myObj.nextInt();
 
             System.out.println("Changing: "+row+" - "+col);
-            mappa.change_cell_with_A(new Coordinates(row, col));
+            mappa.change_cell_with_Sand(new Coordinates(row, col));
         }
         mappa.display_on_out();
     }

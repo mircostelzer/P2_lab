@@ -1,6 +1,8 @@
 package visual;
 
-import data.*;
+import Utils.Coordinates;
+import data.blocks.*;
+import data.blocks.solids.RawIronBlock;
 
 import java.util.Random;
 
@@ -26,8 +28,15 @@ public class Map {
         }
 
         Random rand = new Random();
-        for (int i = 0 ; i < 5; i++){
+        for (int i = 0 ; i < 3; i++){
             Block b = new SandBlock();
+            int row = rand.nextInt(rows);
+            int col = rand.nextInt(columns);
+            this.grid[row][col] = b;
+        }
+
+        for (int i = 0 ; i < 2; i++){
+            Block b = new RawIronBlock();
             int row = rand.nextInt(rows);
             int col = rand.nextInt(columns);
             this.grid[row][col] = b;
@@ -61,7 +70,7 @@ public class Map {
                 (coords.getY() >= 0 && coords.getY() < columns);
     }
 
-    public void change_cell_with_A(Coordinates coords) {
+    public void change_cell_with_Sand(Coordinates coords) {
         if (checkCoordinates(coords)) {
             this.grid[coords.getX()][coords.getY()] = new SandBlock();
         }

@@ -1,4 +1,8 @@
-package data;
+package visual;
+
+import data.blocks.Block;
+import data.blocks.NullBlock;
+import data.blocks.SmeltableBlock;
 
 public class Furnace {
 

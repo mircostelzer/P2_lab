@@ -1,7 +1,7 @@
 package visual;
 
-import data.AirBlock;
-import data.Furnace;
+import Utils.Coordinates;
+import data.blocks.AirBlock;
 
 public class MainView {
     private final Map map;

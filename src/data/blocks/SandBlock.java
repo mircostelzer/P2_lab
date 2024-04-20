@@ -1,4 +1,6 @@
-package data;
+package data.blocks;
+
+import data.blocks.solids.GlassBlock;
 
 public class SandBlock extends AbstractBlock implements SmeltableBlock {
 

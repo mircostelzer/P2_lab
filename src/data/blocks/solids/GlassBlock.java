@@ -1,4 +1,4 @@
-package data;
+package data.blocks.solids;
 
 public class GlassBlock extends AbstractSolidBlock {
 

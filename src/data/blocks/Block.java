@@ -1,4 +1,4 @@
-package data;
+package data.blocks;
 
 public interface Block {
 

@@ -1,4 +1,4 @@
-package data;
+package data.blocks;
 
 public abstract class AbstractBlock implements Block {
 
