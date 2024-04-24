@@ -56,7 +56,7 @@
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/mirco/uni/Programmazione 2/IntelliJ/SimpleMinecraft&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/mirco/uni/Programmazione 2/IntelliJ/p2lab-mc&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -108,7 +108,8 @@
       <workItem from="1713466853658" duration="997000" />
       <workItem from="1713541540970" duration="75000" />
       <workItem from="1713605760648" duration="3004000" />
-      <workItem from="1713622746145" duration="1157000" />
+      <workItem from="1713622746145" duration="2957000" />
+      <workItem from="1713948116868" duration="1897000" />
     </task>
     <servers />
   </component>

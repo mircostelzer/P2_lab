@@ -1,9 +1,11 @@
 package visual;
 
 import Utils.Coordinates;
+import data.BlockFactory;
 import data.blocks.*;
 import data.blocks.solids.RawIronBlock;
 
+import java.util.AbstractSet;
 import java.util.Random;
 
 public class Map {
@@ -15,43 +17,36 @@ public class Map {
     private static final int DEFAULT_COLUMNS = 10;
 
     protected Block[][] grid;
+    private BlockFactory bf;
 
     public Map() {
+        this.bf = new BlockFactory();
         rows = Map.DEFAULT_ROWS;
         columns = Map.DEFAULT_COLUMNS;
 
-        this.grid = new Block[rows][columns];
+        this.grid = new AbstractBlock[rows][columns];
         for (int i = 0; i< rows; i++) {
             for (int j = 0; j< columns; j++) {
-                grid[i][j] = new AirBlock();
+                Block b = this.bf.airBlock();
+                Coordinates coords = new Coordinates(i, j);
+                this.insert_at_coords(b, coords);
             }
         }
 
-        Random rand = new Random();
-        for (int i = 0 ; i < 3; i++){
-            Block b = new SandBlock();
-            int row = rand.nextInt(rows);
-            int col = rand.nextInt(columns);
-            this.grid[row][col] = b;
-        }
-
-        for (int i = 0 ; i < 2; i++){
-            Block b = new RawIronBlock();
-            int row = rand.nextInt(rows);
-            int col = rand.nextInt(columns);
-            this.grid[row][col] = b;
-        }
-
+        this.addRandomBlocks();
         this.addRiver();
     }
 
     public Map(int r, int c) {
         rows = r;
         columns = c;
-        this.grid = new Block[rows][columns];
+        this.bf = new BlockFactory();
+        this.grid = new AbstractBlock[rows][columns];
         for (int i = 0; i< rows; i++) {
             for (int j = 0; j< columns; j++) {
-                grid[i][j] = new AirBlock();
+                Block b = this.bf.airBlock();
+                Coordinates coords = new Coordinates(i, j);
+                this.insert_at_coords(b, coords);
             }
         }
     }
@@ -83,7 +78,7 @@ public class Map {
         int x = coords.getX();
         int y = coords.getY();
         Coordinates next = coords.nextX();
-        if (checkCoordinates(next)) {
+        if (this.checkCoordinates(next)) {
             Block tmp = this.grid[x][y];
             this.grid[x][y] = this.grid[x+1][y];
             this.grid[x+1][y] = tmp;
@@ -129,7 +124,7 @@ public class Map {
     private void addRowsOfWater(int n) {
         for (int i=0; i<n; i++) {
             for (int j=0; j<columns; j++) {
-                Block w = new WaterBlock();
+                Block w = this.bf.waterBlock();
                 insert_at_coords(w, new Coordinates(i, j));
             }
         }
@@ -154,5 +149,30 @@ public class Map {
             return (SmeltableBlock)grid[coords.getX()][coords.getY()];
         }
         else return new NullBlock();
+    }
+
+    public void addRandomBlocks() {
+        Random rand = new Random();
+        int randomBlocks = rows * columns/5;
+        for (int i=0; i<randomBlocks; i++) {
+            Block b = this.bf.randomBlock();
+            int row = rand.nextInt(rows);
+            int col = rand.nextInt(columns);
+            if (this.sanityCheck(b, row, col)) {
+                this.insert_at_coords(b, new Coordinates(row, col));
+            }
+            else {
+                i--;
+            }
+        }
+    }
+
+    public boolean sanityCheck(Block b, int row, int col) {
+        if (b instanceof RawIronBlock) {
+            if (grid[row][col] instanceof WaterBlock) {
+                return false;
+            }
+        }
+        return true;
     }
 }
