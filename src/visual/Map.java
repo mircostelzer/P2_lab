@@ -3,9 +3,10 @@ package visual;
 import Utils.Coordinates;
 import data.BlockFactory;
 import data.blocks.*;
+import data.blocks.interfaces.Block;
+import data.blocks.interfaces.SmeltableBlock;
 import data.blocks.solids.RawIronBlock;
 
-import java.util.AbstractSet;
 import java.util.Random;
 
 public class Map {
@@ -17,7 +18,7 @@ public class Map {
     private static final int DEFAULT_COLUMNS = 10;
 
     protected Block[][] grid;
-    private BlockFactory bf;
+    private final BlockFactory bf;
 
     public Map() {
         this.bf = new BlockFactory();
@@ -33,8 +34,8 @@ public class Map {
             }
         }
 
-        this.addRandomBlocks();
         this.addRiver();
+        this.addRandomBlocks();
     }
 
     public Map(int r, int c) {
@@ -52,12 +53,24 @@ public class Map {
     }
 
     public void display_on_out() {
+        System.out.print("  ");
+        for (int i = 0; i< columns; i++) {
+            System.out.print("=");
+        }
+        System.out.println();
         for (int i = 0; i< rows; i++) {
+            System.out.print("||");
             for (int j = 0; j< columns; j++) {
                 System.out.print(grid[i][j].display());
             }
+            System.out.print("||");
             System.out.println();
         }
+        System.out.print("  ");
+        for (int i = 0; i< columns; i++) {
+            System.out.print("=");
+        }
+        System.out.println();
     }
 
     public boolean checkCoordinates(Coordinates coords) {
@@ -92,8 +105,8 @@ public class Map {
     public void insert_at_coords(Block b, Coordinates coords) {
         if (checkCoordinates(coords)) {
             this.grid[coords.getX()][coords.getY()] = b;
-            this.insert_iter(coords);
-            //insert_rec(coords);
+            //this.insert_iter(coords);
+            insert_rec(coords);
         }
 
     }
@@ -125,7 +138,7 @@ public class Map {
         for (int i=0; i<n; i++) {
             for (int j=0; j<columns; j++) {
                 Block w = this.bf.waterBlock();
-                insert_at_coords(w, new Coordinates(i, j));
+                insert_at_coords(w, new Coordinates(0, j));
             }
         }
     }

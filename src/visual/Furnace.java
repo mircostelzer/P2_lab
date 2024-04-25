@@ -1,8 +1,8 @@
 package visual;
 
-import data.blocks.Block;
+import data.blocks.interfaces.Block;
 import data.blocks.NullBlock;
-import data.blocks.SmeltableBlock;
+import data.blocks.interfaces.SmeltableBlock;
 
 public class Furnace {
 
@@ -18,7 +18,7 @@ public class Furnace {
 
 
     public void display_on_out() {
-        System.out.println("|| " + this.input.display() + " --> " + this.output.display() + " ||");
+        System.out.println("|| " + this.input.display() + "  ->  " + this.output.display() + " ||");
     }
 
     public void smelt() {
@@ -29,5 +29,9 @@ public class Furnace {
     public void setInput(SmeltableBlock block) {
         this.input = block;
         this.output = this.input.smelt();
+    }
+
+    public Block getOutput() {
+        return this.output;
     }
 }

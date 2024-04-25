@@ -6,6 +6,18 @@
   <component name="ChangeListManager">
     <list default="true" id="a70b7285-b497-4876-8a64-8b82763db0a0" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Utils/Coordinates.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Utils/Coordinates.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/data/BlockFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/BlockFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/data/blocks/AbstractBlock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/blocks/AbstractBlock.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/data/blocks/Block.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/blocks/interfaces/Block.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/data/blocks/IronSwordInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/blocks/interfaces/IronSwordInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/data/blocks/NullBlock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/blocks/NullBlock.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/data/blocks/SandBlock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/blocks/SandBlock.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/data/blocks/SmeltableBlock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/blocks/interfaces/SmeltableBlock.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/data/blocks/solids/IronSwordBlock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/blocks/solids/IronSwordBlock.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/data/blocks/solids/RawIronBlock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/blocks/solids/RawIronBlock.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/visual/Furnace.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/visual/Furnace.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/visual/MainView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/visual/MainView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/visual/Map.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/visual/Map.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -48,27 +60,27 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/mirco/uni/Programmazione 2/IntelliJ/p2lab-mc&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Global Libraries&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Main.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/home/mirco/uni/Programmazione 2",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Global Libraries",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.lookFeel",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main.Main" />
@@ -109,7 +121,10 @@
       <workItem from="1713541540970" duration="75000" />
       <workItem from="1713605760648" duration="3004000" />
       <workItem from="1713622746145" duration="2957000" />
-      <workItem from="1713948116868" duration="1897000" />
+      <workItem from="1713948116868" duration="2568000" />
+      <workItem from="1713959407590" duration="12000" />
+      <workItem from="1714039005866" duration="1353000" />
+      <workItem from="1714047240647" duration="4136000" />
     </task>
     <servers />
   </component>

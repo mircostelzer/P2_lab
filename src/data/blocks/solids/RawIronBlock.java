@@ -1,8 +1,7 @@
 package data.blocks.solids;
 
-import data.blocks.Block;
-import data.blocks.IronSwordInterface;
-import data.blocks.SmeltableBlock;
+import data.blocks.interfaces.IronSwordInterface;
+import data.blocks.interfaces.SmeltableBlock;
 
 public class RawIronBlock extends AbstractSolidBlock implements SmeltableBlock {
     public RawIronBlock() {

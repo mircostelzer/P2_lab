@@ -1,5 +1,7 @@
 package data.blocks;
 
+import data.blocks.interfaces.Block;
+
 public abstract class AbstractBlock implements Block {
 
     protected char content;
@@ -24,6 +26,10 @@ public abstract class AbstractBlock implements Block {
 
     public boolean getFall_through() {
         return this.fall_through;
+    }
+
+    public void display_in_inventory() {
+        System.out.print("[" + this.display() + "]");
     }
 
 }

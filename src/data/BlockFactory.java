@@ -1,7 +1,7 @@
 package data;
 
 import data.blocks.*;
-import data.blocks.solids.GlassBlock;
+import data.blocks.interfaces.Block;
 import data.blocks.solids.RawIronBlock;
 
 import java.util.Random;

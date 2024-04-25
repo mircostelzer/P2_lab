@@ -1,6 +1,7 @@
 package data.blocks;
 
-import data.blocks.solids.AbstractSolidBlock;
+import data.blocks.interfaces.Block;
+import data.blocks.interfaces.SmeltableBlock;
 
 public class NullBlock extends AbstractBlock implements SmeltableBlock {
 

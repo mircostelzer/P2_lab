@@ -1,4 +1,4 @@
-package data.blocks;
+package data.blocks.interfaces;
 
 public interface IronSwordInterface extends Block{
 }

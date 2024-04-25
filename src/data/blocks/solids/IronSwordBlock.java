@@ -1,6 +1,6 @@
 package data.blocks.solids;
 
-import data.blocks.IronSwordInterface;
+import data.blocks.interfaces.IronSwordInterface;
 
 class IronSwordBlock extends AbstractSolidBlock implements IronSwordInterface {
     public IronSwordBlock() {
