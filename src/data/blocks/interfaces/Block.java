@@ -9,4 +9,6 @@ public interface Block extends InventoryBlock{
     boolean getFall_through();
 
     void display_in_inventory();
+
+    boolean is_pickable();
 }

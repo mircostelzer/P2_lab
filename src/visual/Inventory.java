@@ -39,6 +39,7 @@ public class Inventory {
     public SmeltableBlock get_smeltable_item(int i) {
         if (is_smeltable(i)) {
             Block b = this.inventory.get(i);
+            this.inventory.remove(i);
             return (SmeltableBlock)b;
         }
         else {

@@ -34,4 +34,8 @@ public class Furnace {
     public Block getOutput() {
         return this.output;
     }
+
+    public SmeltableBlock getInput() {
+        return this.input;
+    }
 }

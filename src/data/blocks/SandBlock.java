@@ -12,6 +12,7 @@ public class SandBlock extends AbstractBlock implements SmeltableBlock {
         this.fall_through = false;
         this.blockname = "Sand";
         this.content = 'S';
+        this.pickable = true;
     }
 
     public Block smelt() {

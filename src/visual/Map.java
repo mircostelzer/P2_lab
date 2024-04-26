@@ -154,7 +154,8 @@ public class Map {
     }
 
     protected boolean IsSmeltableBlock(Coordinates coords) {
-        return (grid[coords.getX()][coords.getY()] instanceof SmeltableBlock);
+        return (checkCoordinates(coords) &&
+                grid[coords.getX()][coords.getY()] instanceof SmeltableBlock);
     }
 
     protected SmeltableBlock getSmeltableBlock(Coordinates coords) {
@@ -187,5 +188,23 @@ public class Map {
             }
         }
         return true;
+    }
+
+    public boolean is_pickable(Coordinates coords) {
+        if (this.checkCoordinates(coords)) {
+            if (grid[coords.getX()][coords.getY()].is_pickable()) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public Block gimme_pickable(Coordinates coords) {
+        if (this.is_pickable(coords)) {
+            return (Block)grid[coords.getX()][coords.getY()];
+        }
+        else {
+            return new NullBlock();
+        }
     }
 }

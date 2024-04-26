@@ -5,11 +5,14 @@ import data.blocks.interfaces.Block;
 public abstract class AbstractBlock implements Block {
 
     protected char content;
-
     protected boolean falls_with_gravity;
     protected boolean fall_through;
-
     protected String blockname;
+    protected boolean pickable;
+
+    public AbstractBlock() {
+        this.pickable = false;
+    }
 
     @Override
     public String toString() {
@@ -26,6 +29,10 @@ public abstract class AbstractBlock implements Block {
 
     public boolean getFall_through() {
         return this.fall_through;
+    }
+
+    public boolean is_pickable() {
+        return this.pickable;
     }
 
     public void display_in_inventory() {
