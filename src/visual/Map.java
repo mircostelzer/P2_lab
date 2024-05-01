@@ -1,5 +1,6 @@
 package visual;
 
+import Utils.BlockErrorException;
 import Utils.Coordinates;
 import data.BlockFactory;
 import data.blocks.*;
@@ -153,16 +154,18 @@ public class Map {
         addRowsOfWater(3);
     }
 
-    protected boolean IsSmeltableBlock(Coordinates coords) {
+    private boolean IsSmeltableBlock(Coordinates coords) {
         return (checkCoordinates(coords) &&
                 grid[coords.getX()][coords.getY()] instanceof SmeltableBlock);
     }
 
-    protected SmeltableBlock getSmeltableBlock(Coordinates coords) {
+    protected SmeltableBlock getSmeltableBlock(Coordinates coords) throws BlockErrorException {
         if (IsSmeltableBlock(coords)) {
             return (SmeltableBlock)grid[coords.getX()][coords.getY()];
         }
-        else return new NullBlock();
+        else {
+            throw new BlockErrorException();
+        }
     }
 
     public void addRandomBlocks() {

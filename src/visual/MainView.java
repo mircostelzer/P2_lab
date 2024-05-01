@@ -1,5 +1,6 @@
 package visual;
 
+import Utils.BlockErrorException;
 import Utils.Coordinates;
 import data.BlockFactory;
 import data.blocks.NullBlock;
@@ -41,8 +42,13 @@ public class MainView {
     }
 
     public void move_into_furnace_from_inventory(int i) {
-        SmeltableBlock b = this.inventory.get_smeltable_item(i);
-        this.furnace.setInput(b);
+        try {
+            SmeltableBlock b = this.inventory.get_smeltable_item(i);
+            this.furnace.setInput(b);
+        }
+        catch (BlockErrorException e) {
+            System.out.println("Not a smeltable block");
+        }
     }
 
     public void move_into_inventory_from_furnace() {
@@ -62,6 +68,6 @@ public class MainView {
     }
 
     public void toggle_inventory_comparator() {
-
+        this.inventory.switch_comparator();
     }
 }

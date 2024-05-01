@@ -11,4 +11,6 @@ public interface Block extends InventoryBlock{
     void display_in_inventory();
 
     boolean is_pickable();
+
+    int hashCode();
 }
