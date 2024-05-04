@@ -21,18 +21,16 @@ public class Furnace {
         System.out.println("|| " + this.input.display() + "  ->  " + this.output.display() + " ||");
     }
 
-    public void smelt() {
-        this.output = this.input.smelt();
+    public Block smelt() {
+        Block b = this.input.smelt();
         this.input = new NullBlock();
+        this.output = new NullBlock();
+        return b;
     }
 
     public void setInput(SmeltableBlock block) {
         this.input = block;
         this.output = this.input.smelt();
-    }
-
-    public Block getOutput() {
-        return this.output;
     }
 
     public SmeltableBlock getInput() {

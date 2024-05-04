@@ -2,6 +2,7 @@ package visual;
 
 import Utils.BlockErrorException;
 import Utils.Coordinates;
+import Utils.WrongCoordinatesException;
 import data.BlockFactory;
 import data.blocks.NullBlock;
 import data.blocks.interfaces.Block;
@@ -36,9 +37,8 @@ public class MainView {
 //    }
 
     public void smelt() {
-        this.furnace.smelt();
-        Block b = this.furnace.getOutput();
-        this.inventory.add_block(b);
+        Block b = this.furnace.smelt();
+        this.inventory.add_block((Block)b);
     }
 
     public void move_into_furnace_from_inventory(int i) {
@@ -62,8 +62,6 @@ public class MainView {
         Block pick_up = this.map.gimme_pickable(coords);
         if (!(pick_up instanceof NullBlock)) {
             this.inventory.add_block((Block)pick_up);
-            Block b = this.bf.airBlock();
-            this.map.insert_at_coords(b, coords);
         }
     }
 

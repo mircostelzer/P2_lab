@@ -52,7 +52,6 @@ public class Main {
             System.out.println("Enter '99' and then '9' to smelt");
             System.out.println("Enter '99' and then '0' to toggle the inventory sorting");
             System.out.println("Enter '99' and then any number to take from the furnace into the inventory");
-            System.out.println("Enter '999' to switch the inventory sorting");
             Scanner myObj = new Scanner(System.in);
             int row = myObj.nextInt();
             int col = myObj.nextInt();

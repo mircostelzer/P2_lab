@@ -2,6 +2,7 @@ package visual;
 
 import Utils.BlockErrorException;
 import Utils.Coordinates;
+import Utils.WrongCoordinatesException;
 import data.BlockFactory;
 import data.blocks.*;
 import data.blocks.interfaces.Block;
@@ -31,7 +32,12 @@ public class Map {
             for (int j = 0; j< columns; j++) {
                 Block b = this.bf.airBlock();
                 Coordinates coords = new Coordinates(i, j);
-                this.insert_at_coords(b, coords);
+                try {
+                    this.insert_at_coords(b, coords);
+                }
+                catch (WrongCoordinatesException e) {
+
+                }
             }
         }
 
@@ -48,9 +54,17 @@ public class Map {
             for (int j = 0; j< columns; j++) {
                 Block b = this.bf.airBlock();
                 Coordinates coords = new Coordinates(i, j);
-                this.insert_at_coords(b, coords);
+                try {
+                    this.insert_at_coords(b, coords);
+                }
+                catch (WrongCoordinatesException e) {
+
+                }
             }
         }
+
+        this.addSea();
+        this.addRandomBlocks();
     }
 
     public void display_on_out() {
@@ -97,17 +111,16 @@ public class Map {
             this.grid[x][y] = this.grid[x+1][y];
             this.grid[x+1][y] = tmp;
         }
-        else {
-            System.out.println("Invalid coordinates");
-        }
-
     }
 
-    public void insert_at_coords(Block b, Coordinates coords) {
+    public void insert_at_coords(Block b, Coordinates coords) throws WrongCoordinatesException {
         if (checkCoordinates(coords)) {
             this.grid[coords.getX()][coords.getY()] = b;
             //this.insert_iter(coords);
             insert_rec(coords);
+        }
+        else {
+            throw new WrongCoordinatesException();
         }
 
     }
@@ -139,7 +152,12 @@ public class Map {
         for (int i=0; i<n; i++) {
             for (int j=0; j<columns; j++) {
                 Block w = this.bf.waterBlock();
-                insert_at_coords(w, new Coordinates(0, j));
+                try {
+                    insert_at_coords(w, new Coordinates(0, j));
+                }
+                catch (WrongCoordinatesException e) {
+
+                }
             }
         }
     }
@@ -154,19 +172,27 @@ public class Map {
         addRowsOfWater(3);
     }
 
-    private boolean IsSmeltableBlock(Coordinates coords) {
-        return (checkCoordinates(coords) &&
-                grid[coords.getX()][coords.getY()] instanceof SmeltableBlock);
-    }
-
-    protected SmeltableBlock getSmeltableBlock(Coordinates coords) throws BlockErrorException {
-        if (IsSmeltableBlock(coords)) {
-            return (SmeltableBlock)grid[coords.getX()][coords.getY()];
-        }
-        else {
-            throw new BlockErrorException();
-        }
-    }
+//    private boolean IsSmeltableBlock(Coordinates coords) {
+//        return (checkCoordinates(coords) &&
+//                grid[coords.getX()][coords.getY()] instanceof SmeltableBlock);
+//    }
+//
+//    protected SmeltableBlock getSmeltableBlock(Coordinates coords) throws BlockErrorException {
+//        if (IsSmeltableBlock(coords)) {
+//            SmeltableBlock b = (SmeltableBlock)grid[coords.getX()][coords.getY()];
+//            try {
+//                insert_at_coords(this.bf.airBlock(), coords);
+//            }
+//            catch (WrongCoordinatesException e) {}
+//            for (int i= coords.getX()-1; i>=0; i--) {
+//                this.insert_rec(new Coordinates(i, coords.getY()));
+//            }
+//            return b;
+//        }
+//        else {
+//            throw new BlockErrorException();
+//        }
+//    }
 
     public void addRandomBlocks() {
         Random rand = new Random();
@@ -176,7 +202,12 @@ public class Map {
             int row = rand.nextInt(rows);
             int col = rand.nextInt(columns);
             if (this.sanityCheck(b, row, col)) {
-                this.insert_at_coords(b, new Coordinates(row, col));
+                try {
+                    this.insert_at_coords(b, new Coordinates(row, col));
+                }
+                catch(WrongCoordinatesException e) {
+
+                }
             }
             else {
                 i--;
@@ -193,21 +224,35 @@ public class Map {
         return true;
     }
 
-    public boolean is_pickable(Coordinates coords) {
+    public boolean is_pickable(Coordinates coords) throws WrongCoordinatesException {
         if (this.checkCoordinates(coords)) {
             if (grid[coords.getX()][coords.getY()].is_pickable()) {
                 return true;
             }
         }
+        else {
+            throw new WrongCoordinatesException();
+        }
         return false;
     }
 
     public Block gimme_pickable(Coordinates coords) {
-        if (this.is_pickable(coords)) {
-            return (Block)grid[coords.getX()][coords.getY()];
+        try {
+            if (this.is_pickable(coords)) {
+                Block b = grid[coords.getX()][coords.getY()];
+                try {
+                    insert_at_coords(this.bf.airBlock(), coords);
+                }
+                catch (WrongCoordinatesException e) {}
+                for (int i= coords.getX()-1; i>=0; i--) {
+                    this.insert_rec(new Coordinates(i, coords.getY()));
+                }
+                return (Block)b;
+            }
         }
-        else {
-            return new NullBlock();
+        catch (WrongCoordinatesException e) {
+            System.out.println("Invalid coordinates");
         }
+        return new NullBlock();
     }
 }

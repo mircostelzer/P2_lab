@@ -7,9 +7,9 @@
     <list default="true" id="a70b7285-b497-4876-8a64-8b82763db0a0" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data/blocks/interfaces/Block.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/blocks/interfaces/Block.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/visual/Inventory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/visual/Inventory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/visual/Furnace.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/visual/Furnace.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/visual/MainView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/visual/MainView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/visual/Map.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/visual/Map.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,7 +59,7 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/home/mirco/uni/Programmazione 2/IntelliJ/HelloWorldFX",
+    "last_opened_file_path": "/home/mirco/uni/Programmazione 2/IntelliJ/SimpleMinecraft",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -117,7 +117,8 @@
       <workItem from="1714039005866" duration="1353000" />
       <workItem from="1714047240647" duration="4946000" />
       <workItem from="1714133936751" duration="4692000" />
-      <workItem from="1714554751328" duration="3570000" />
+      <workItem from="1714554751328" duration="6060000" />
+      <workItem from="1714813879833" duration="3221000" />
     </task>
     <servers />
   </component>
