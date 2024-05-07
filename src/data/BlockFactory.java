@@ -3,11 +3,12 @@ package data;
 import data.blocks.*;
 import data.blocks.interfaces.Block;
 import data.blocks.solids.RawIronBlock;
+import data.blocks.solids.TorchBlock;
 
 import java.util.Random;
 
 public class BlockFactory {
-    private static final int RAND_UPPERBOUND = 2;
+    private static final int RAND_UPPERBOUND = 3;
 
     public Block randomBlock() {
         Random rand = new Random();
@@ -17,6 +18,8 @@ public class BlockFactory {
                 return this.rawIronBlock();
             case 1:
                 return this.sandBlock();
+            case 2:
+                return this.torchBlock();
             default:
                 return this.nullBlock();
         }
@@ -41,4 +44,6 @@ public class BlockFactory {
     public NullBlock nullBlock() {
         return new NullBlock();
     }
+
+    public TorchBlock torchBlock() { return new TorchBlock(); }
 }

@@ -8,6 +8,7 @@ import data.blocks.*;
 import data.blocks.interfaces.Block;
 import data.blocks.interfaces.SmeltableBlock;
 import data.blocks.solids.RawIronBlock;
+import data.blocks.solids.TorchBlock;
 
 import java.util.Random;
 
@@ -16,8 +17,8 @@ public class Map {
     private static int rows;
     private static int columns;
 
-    private static final int DEFAULT_ROWS = 5;
-    private static final int DEFAULT_COLUMNS = 10;
+    private static final int DEFAULT_ROWS = 20;
+    private static final int DEFAULT_COLUMNS = 40;
 
     protected Block[][] grid;
     private final BlockFactory bf;
@@ -128,6 +129,13 @@ public class Map {
     public void insert_rec(Coordinates coords) {
         int x = coords.getX();
         int y = coords.getY();
+        if((grid[x][y] instanceof SandBlock) && (grid[x+1][y] instanceof TorchBlock)) {
+            try {
+                insert_at_coords(this.bf.airBlock(), coords);
+            }
+            catch (WrongCoordinatesException e) {}
+            return;
+        }
         if (    x >= (rows - 1)
                 || !grid[x][y].getFalls_with_gravity()
                 || !grid[x+1][y].getFall_through()) {
@@ -255,4 +263,5 @@ public class Map {
         }
         return new NullBlock();
     }
+
 }
