@@ -129,12 +129,16 @@ public class Map {
     public void insert_rec(Coordinates coords) {
         int x = coords.getX();
         int y = coords.getY();
-        if((grid[x][y] instanceof SandBlock) && (grid[x+1][y] instanceof TorchBlock)) {
-            try {
-                insert_at_coords(this.bf.airBlock(), coords);
+
+        if (grid[x][y] instanceof SandBlock) {
+            if ((x+1 < rows) && (grid[x+1][y] instanceof TorchBlock) ) {
+                try {
+                    insert_at_coords(this.bf.airBlock(), coords);
+                    this.gravity(coords);
+                }
+                catch (WrongCoordinatesException e) {}
+                return;
             }
-            catch (WrongCoordinatesException e) {}
-            return;
         }
         if (    x >= (rows - 1)
                 || !grid[x][y].getFalls_with_gravity()
@@ -252,9 +256,8 @@ public class Map {
                     insert_at_coords(this.bf.airBlock(), coords);
                 }
                 catch (WrongCoordinatesException e) {}
-                for (int i= coords.getX()-1; i>=0; i--) {
-                    this.insert_rec(new Coordinates(i, coords.getY()));
-                }
+
+                this.gravity(coords);
                 return (Block)b;
             }
         }
@@ -262,6 +265,12 @@ public class Map {
             System.out.println("Invalid coordinates");
         }
         return new NullBlock();
+    }
+
+    public void gravity(Coordinates coords) {
+        for (int i= coords.getX()-1; i>=0; i--) {
+            this.insert_rec(new Coordinates(i, coords.getY()));
+        }
     }
 
 }
