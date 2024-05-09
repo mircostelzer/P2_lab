@@ -30,7 +30,7 @@ public class Inventory {
         if (b instanceof NullBlock) {
             return;
         }
-        this.inventory.add((Block)b);
+        this.inventory.add(b);
         this.sortInventory();
     }
 
@@ -40,17 +40,19 @@ public class Inventory {
     }
 
     public SmeltableBlock get_smeltable_item(int i) throws BlockErrorException {
-        if (is_smeltable(i)) {
+        if (this.is_smeltable(i)) {
             Block b = this.inventory.get(i);
             this.inventory.remove(i);
             return (SmeltableBlock)b;
+            // alternative
+            // return (SmeltableBlock) ((ArrayList<Block>) this.inventory_list).remove(index);
         }
         else {
             throw new BlockErrorException();
         }
     }
 
-    public void sortInventory() {
+    private void sortInventory() {
         this.inventory.sort(comparator);
     }
 

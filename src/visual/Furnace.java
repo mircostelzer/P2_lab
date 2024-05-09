@@ -1,5 +1,6 @@
 package visual;
 
+import data.BlockFactory;
 import data.blocks.interfaces.Block;
 import data.blocks.NullBlock;
 import data.blocks.interfaces.SmeltableBlock;
@@ -7,12 +8,13 @@ import data.blocks.interfaces.SmeltableBlock;
 public class Furnace {
 
     private SmeltableBlock input;
-
     private Block output;
+    private BlockFactory bf;
 
     public Furnace() {
-        this.input = new NullBlock();
-        this.output = new NullBlock();
+        this.bf = new BlockFactory();
+        this.input = this.bf.nullBlock();
+        this.output = this.bf.nullBlock();
     }
 
 
@@ -23,8 +25,8 @@ public class Furnace {
 
     public Block smelt() {
         Block b = this.input.smelt();
-        this.input = new NullBlock();
-        this.output = new NullBlock();
+        this.input = this.bf.nullBlock();
+        this.output = this.bf.nullBlock();
         return b;
     }
 

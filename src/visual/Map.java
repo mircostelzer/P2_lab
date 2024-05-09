@@ -1,12 +1,10 @@
 package visual;
 
-import Utils.BlockErrorException;
 import Utils.Coordinates;
 import Utils.WrongCoordinatesException;
 import data.BlockFactory;
 import data.blocks.*;
 import data.blocks.interfaces.Block;
-import data.blocks.interfaces.SmeltableBlock;
 import data.blocks.solids.RawIronBlock;
 import data.blocks.solids.TorchBlock;
 
@@ -20,8 +18,8 @@ public class Map {
     private static final int DEFAULT_ROWS = 20;
     private static final int DEFAULT_COLUMNS = 40;
 
-    protected Block[][] grid;
-    private final BlockFactory bf;
+    private Block[][] grid;
+    private BlockFactory bf;
 
     public Map() {
         this.bf = new BlockFactory();
@@ -213,9 +211,12 @@ public class Map {
             Block b = this.bf.randomBlock();
             int row = rand.nextInt(rows);
             int col = rand.nextInt(columns);
-            if (this.sanityCheck(b, row, col)) {
+            if (this.sanity_check_water(b, row, col)) {
                 try {
                     this.insert_at_coords(b, new Coordinates(row, col));
+                    if (this.sanity_check_torch(b, row, col)) {
+                        this.gravity(new Coordinates(row, col));
+                    }
                 }
                 catch(WrongCoordinatesException e) {
 
@@ -227,13 +228,20 @@ public class Map {
         }
     }
 
-    public boolean sanityCheck(Block b, int row, int col) {
-        if (b instanceof RawIronBlock) {
+    private boolean sanity_check_water(Block b, int row, int col) {
+        if ((b instanceof RawIronBlock) || (b instanceof TorchBlock)) {
             if (grid[row][col] instanceof WaterBlock) {
                 return false;
             }
         }
         return true;
+    }
+
+    private boolean sanity_check_torch(Block b, int row, int col) {
+        return ((b instanceof TorchBlock) &&
+                (row-1 > 0) &&
+                (grid[row-1][col] instanceof SandBlock));
+
     }
 
     public boolean is_pickable(Coordinates coords) throws WrongCoordinatesException {

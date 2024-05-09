@@ -9,10 +9,10 @@ import data.blocks.interfaces.Block;
 import data.blocks.interfaces.SmeltableBlock;
 
 public class MainView {
-    private final Map map;
-    private final Furnace furnace;
-    private final BlockFactory bf;
-    private final Inventory inventory;
+    private Map map;
+    private Furnace furnace;
+    private BlockFactory bf;
+    private Inventory inventory;
 
     public MainView() {
         this.map = new Map();
@@ -27,7 +27,7 @@ public class MainView {
         this.inventory.display_inventory();
     }
 
-//    public void move_into_furnace(Coordinates coords) {
+//    public void move_into_furnace_from_map(Coordinates coords) {
 //        SmeltableBlock smeltableBlock = this.map.getSmeltableBlock(coords);
 //        if (!(smeltableBlock instanceof NullBlock)) {
 //            this.furnace.setInput(smeltableBlock);
@@ -53,15 +53,15 @@ public class MainView {
 
     public void move_into_inventory_from_furnace() {
         Block b = this.furnace.getInput();
-        this.inventory.add_block((Block)b);
-        SmeltableBlock nullBlock = new NullBlock();
+        this.inventory.add_block(b);
+        SmeltableBlock nullBlock = this.bf.nullBlock();
         this.furnace.setInput(nullBlock);
     }
 
     public void pick_up_block(Coordinates coords) {
         Block pick_up = this.map.gimme_pickable(coords);
         if (!(pick_up instanceof NullBlock)) {
-            this.inventory.add_block((Block)pick_up);
+            this.inventory.add_block(pick_up);
         }
     }
 

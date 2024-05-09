@@ -7,6 +7,6 @@ public class WaterBlock extends AbstractBlock {
         this.falls_with_gravity = true;
         this.fall_through = true;
         this.blockname = "Water";
-        this.content = 'W';
+        this.content = '~';
     }
 }

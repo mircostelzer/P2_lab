@@ -35,8 +35,8 @@ public abstract class AbstractBlock implements Block {
         return this.pickable;
     }
 
-    public void display_in_inventory() {
-        System.out.print("[" + this.display() + "]");
+    public String display_in_inventory() {
+        return ("[" + this.display() + "]");
     }
 
 }
