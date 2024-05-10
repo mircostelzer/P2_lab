@@ -6,11 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="a70b7285-b497-4876-8a64-8b82763db0a0" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/data/blocks/AbstractBlock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/blocks/AbstractBlock.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data/blocks/WaterBlock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/blocks/WaterBlock.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data/blocks/interfaces/Block.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/blocks/interfaces/Block.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data/blocks/interfaces/InventoryBlock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/blocks/interfaces/InventoryBlock.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/visual/Furnace.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/visual/Furnace.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/visual/Inventory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/visual/Inventory.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/visual/MainView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/visual/MainView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/visual/Map.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/visual/Map.java" afterDir="false" />
@@ -63,7 +60,7 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/home/mirco/uni/Programmazione 2/IntelliJ/SimpleMinecraft",
+    "last_opened_file_path": "/home/mirco/uni/Programmazione 2/IntelliJ/p2lab-mc/src",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -126,7 +123,8 @@
       <workItem from="1715002114549" duration="48000" />
       <workItem from="1715078861767" duration="1386000" />
       <workItem from="1715158410651" duration="2395000" />
-      <workItem from="1715258309947" duration="1158000" />
+      <workItem from="1715258309947" duration="1739000" />
+      <workItem from="1715331204846" duration="4420000" />
     </task>
     <servers />
   </component>

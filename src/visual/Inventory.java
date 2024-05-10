@@ -19,9 +19,9 @@ public class Inventory {
     }
 
     public void display_inventory() {
-        for (Iterator<Block> i = inventory.iterator(); i.hasNext(); ) {
+        for (Iterator<Block> i = this.inventory.iterator(); i.hasNext(); ) {
             Block b = i.next();
-            b.display_in_inventory();
+            System.out.print(b.display_in_inventory());
         }
         System.out.println();
     }

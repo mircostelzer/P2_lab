@@ -36,7 +36,7 @@ public abstract class AbstractBlock implements Block {
     }
 
     public String display_in_inventory() {
-        return ("[" + this.display() + "]");
+        return "["+this.display()+"]";
     }
 
 }

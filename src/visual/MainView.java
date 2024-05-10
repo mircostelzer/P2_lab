@@ -38,7 +38,7 @@ public class MainView {
 
     public void smelt() {
         Block b = this.furnace.smelt();
-        this.inventory.add_block((Block)b);
+        this.inventory.add_block(b);
     }
 
     public void move_into_furnace_from_inventory(int i) {
@@ -59,9 +59,14 @@ public class MainView {
     }
 
     public void pick_up_block(Coordinates coords) {
-        Block pick_up = this.map.gimme_pickable(coords);
-        if (!(pick_up instanceof NullBlock)) {
-            this.inventory.add_block(pick_up);
+        try {
+            Block pick_up = this.map.gimme_pickable(coords);
+            if (!(pick_up instanceof NullBlock)) {
+                this.inventory.add_block(pick_up);
+            }
+        }
+        catch (BlockErrorException e) {
+            System.out.println("Block cannot be picked up") ;
         }
     }
 
