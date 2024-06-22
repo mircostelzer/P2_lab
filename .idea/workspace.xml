@@ -6,11 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="a70b7285-b497-4876-8a64-8b82763db0a0" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data/blocks/AbstractBlock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/blocks/AbstractBlock.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/visual/Inventory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/visual/Inventory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/visual/MainView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/visual/MainView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/visual/Map.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/visual/Map.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,6 +38,9 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
+  <component name="ProjectCodeStyleSettingsMigration">
+    <option name="version" value="2" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 4
 }</component>
@@ -60,7 +58,7 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/home/mirco/uni/Programmazione 2/IntelliJ/p2lab-mc/src",
+    "last_opened_file_path": "/home/mirco/uni/Programmazione 2/IntelliJ/SimpleMinecraft",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -124,7 +122,8 @@
       <workItem from="1715078861767" duration="1386000" />
       <workItem from="1715158410651" duration="2395000" />
       <workItem from="1715258309947" duration="1739000" />
-      <workItem from="1715331204846" duration="4420000" />
+      <workItem from="1715331204846" duration="4682000" />
+      <workItem from="1719072354728" duration="23000" />
     </task>
     <servers />
   </component>
